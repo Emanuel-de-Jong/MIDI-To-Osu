@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>MIDItoOSU</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/functions.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>MIDItoOSU</h1>
+        <p>A midi to osu!mania 10k converter</p>
+    </div>
+
+    <div class="container">
+        <form action="/action_page.php">
+            <div class="form-group">
+                <label for="midi">Select Midi:</label>
+                <input type="file" class="form-control-file" id="midi" name="midi" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tracks">Tracks:</label>
+                <select multiple class="form-control" id="tracks" name="tracks">
+                    <option value="Track 1">Track 1</option>
+                    <option value="Track 2">Track 2</option>
+                    <option value="Track 3">Track 3</option>
+                    <option value="Track 4">Track 4</option>
+                    <option value="Track 5">Track 5</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tracks">Track settings:</label>
+                <div class="form-row">
+                    <div class="form group col-md-2">
+                        <label for="trackpreview">Preview:</label>
+                        <input type="button" class="form-control" value="play" id="trackpreview" name="trackpreview">
+                    </div>
+                    <div class="form group col-md-5">
+                        <label for="tracksound">Sound:</label>
+                        <select class="form-control" id="tracksound" name="tracksound">
+                            <option selected>Piano</option>
+                            <option>Violin</option>
+                        </select>
+                    </div>
+                    <div class="form group col-md-5">
+                        <label for="trackvolume">Volume:</label><br>
+                        <label id="trackvolumevalue">0</label>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <label>-100</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div id="trackvolume"></div>
+                            </div>
+                            <div class="col-md-1">
+                                <label>100</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="backgroundtracks">Background tracks</label>
+                <div class="form-row">
+                    <div class="form group col-md-10">
+                        <select multiple class="form-control" id="backgroundtracks" name="backgroundtracks">
+                            <option>Track 3</option>
+                            <option>Track 4</option>
+                        </select>
+                    </div>
+                    <div class="form group col-md-2">
+                        <input type="button" class="form-control" value="+" id="addbackgroundtracks" name="addbackgroundtracks">
+                        <input type="button" class="form-control" value="-" id="removebackgroundtracks" name="removebackgroundtracks">        
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="righthandtracks">Right hand tracks:</label>
+                <div class="form-row">
+                    <div class="form group col-md-10">
+                        <select multiple class="form-control" id="righthandtracks" name="righthandtracks">
+                            <option>Track 1</option>
+                        </select>
+                    </div>
+                    <div class="form group col-md-2">
+                        <input type="button" class="form-control" value="+" id="addrighthandtracks" name="addrighthandtracks">
+                        <input type="button" class="form-control" value="-" id="removerighthandtracks" name="removerighthandtracks">        
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lefthandtracks">Left hand tracks:</label>
+                <div class="form-row">
+                    <div class="form group col-md-10">
+                        <select multiple class="form-control" id="lefthandtracks" name="lefthandtracks">
+                            <option>Track 2</option>
+                        </select>
+                    </div>
+                    <div class="form group col-md-2">
+                        <input type="button" class="form-control" value="+" id="addlefthandtracks" name="add"lefthandtracks>
+                        <input type="button" class="form-control" value="-" id="removelefthandtracks" name="removelefthandtracks">        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="speed">speed:</label><br>
+                <label id="speedvalue">0</label>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label>0.25</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="speed"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <label>3</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="maxchord">Biggest chord allowed:</label><br>
+                <label id="maxchordvalue">0</label>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label>1</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div id="maxchord"></div>
+                    </div>
+                    <div class="col-md-1">
+                        <label>10</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group form-check">
+                <label for="singletone" class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="singletone" name="singletone">
+                    Disregard MIDI volume variation
+                </label>
+            </div>
+
+            <div class="form-group form-check">
+                <label for="noln" class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="noln" name="noln">
+                    No LN
+                </label>
+            </div>
+
+            <div class="form-group form-check">
+                <label for="mergenotes" class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="mergenotes" name="mergenotes">
+                    Merge notes faster than 1/4
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Convert</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#trackvolume").slider({
+                min: -100,
+                max: 100,
+                value: 0,
+                step: 5,
+                change: function(event, ui){
+                    $("#trackvolumevalue").html(ui.value);
+                }
+            });
+
+            $("#speed").slider({
+                min: 0.25,
+                max: 3,
+                value: 1,
+                step: 0.25,
+                change: function(event, ui){
+                    $("#speedvalue").html(ui.value);
+                }
+            });
+
+            $("#maxchord").slider({
+                min: 1,
+                max: 10,
+                value: 10,
+                step: 1,
+                change: function(event, ui){
+                    $("#maxchordvalue").html(ui.value);
+                }
+            });
+
+            $("#addbackgroundtracks").click(function(){
+                var selectedTracks = $("#tracks").val();
+            });
+        });
+    </script>
+</body>
+
+</html>
