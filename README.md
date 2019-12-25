@@ -1,2 +1,2 @@
-# MIDItoOSU
+# MIDI-To-Osu
  
