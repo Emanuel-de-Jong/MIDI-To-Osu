@@ -78,10 +78,7 @@
                 <label for="backgroundtracks">Background tracks</label>
                 <div class="form-row">
                     <div class="form group col-md-10">
-                        <select multiple class="form-control" id="backgroundtracks" name="backgroundtracks">
-                            <option>Track 3</option>
-                            <option>Track 4</option>
-                        </select>
+                        <select multiple class="form-control" id="backgroundtracks" name="backgroundtracks"></select>
                     </div>
                     <div class="form group col-md-2">
                         <input type="button" class="form-control add-tracks" value="+" id="addbackgroundtracks" name="addbackgroundtracks">
@@ -94,9 +91,7 @@
                 <label for="righthandtracks">Right hand tracks:</label>
                 <div class="form-row">
                     <div class="form group col-md-10">
-                        <select multiple class="form-control" id="righthandtracks" name="righthandtracks">
-                            <option>Track 1</option>
-                        </select>
+                        <select multiple class="form-control" id="righthandtracks" name="righthandtracks"></select>
                     </div>
                     <div class="form group col-md-2">
                         <input type="button" class="form-control add-tracks" value="+" id="addrighthandtracks" name="addrighthandtracks">
@@ -109,9 +104,7 @@
                 <label for="lefthandtracks">Left hand tracks:</label>
                 <div class="form-row">
                     <div class="form group col-md-10">
-                        <select multiple class="form-control" id="lefthandtracks" name="lefthandtracks">
-                            <option>Track 2</option>
-                        </select>
+                        <select multiple class="form-control" id="lefthandtracks" name="lefthandtracks"></select>
                     </div>
                     <div class="form group col-md-2">
                         <input type="button" class="form-control add-tracks" value="+" id="addlefthandtracks" name="add"lefthandtracks>
@@ -211,12 +204,23 @@
 
             $(".add-tracks").click(function(){
                 var selectedTracks = $("#tracks").val();
-                for (i = 0; i < selectedTracks.length; i++){
+                var select = $('#' + this.id.replace("add", ""));
+                var selectTracks = $.map($('#' + select.attr('id') + ' option'), function(e) { return e.value; });
+                for(i = 0; i < selectedTracks.length; i++){
                     var track = selectedTracks[i];
-                    $('#' + this.id.replace("add", "")).append(`<option value="${track}">
-                                                                    ${track}
-                                                                </option>`); 
+                    if(!selectTracks.includes(track)){
+                        select.append(`
+                            <option value="${track}">
+                                ${track}
+                            </option>
+                        `); 
+                    }
                 }
+            });
+
+            $(".remove-tracks").click(function(){
+                var select = $('#' + this.id.replace("remove", ""));
+                $('option:selected', select).remove();
             });
         });
     </script>
