@@ -21,11 +21,11 @@
 <body>
     <div class="jumbotron text-center">
         <h1>MIDItoOSU</h1>
-        <p>A midi to osu!mania 10k converter</p>
+        <p>A MIDI to osu!mania 10k beatmap converter</p>
     </div>
 
     <div class="container">
-        <form action="/action_page.php">
+        <form action="php/convert.php" method="post">
             <div class="form-group">
                 <label for="midi">Select Midi:</label>
                 <input type="file" class="form-control-file" id="midi" name="midi" required>
@@ -84,8 +84,8 @@
                         </select>
                     </div>
                     <div class="form group col-md-2">
-                        <input type="button" class="form-control" value="+" id="addbackgroundtracks" name="addbackgroundtracks">
-                        <input type="button" class="form-control" value="-" id="removebackgroundtracks" name="removebackgroundtracks">        
+                        <input type="button" class="form-control add-tracks" value="+" id="addbackgroundtracks" name="addbackgroundtracks">
+                        <input type="button" class="form-control remove-tracks" value="-" id="removebackgroundtracks" name="removebackgroundtracks">        
                     </div>
                 </div>
             </div>
@@ -99,8 +99,8 @@
                         </select>
                     </div>
                     <div class="form group col-md-2">
-                        <input type="button" class="form-control" value="+" id="addrighthandtracks" name="addrighthandtracks">
-                        <input type="button" class="form-control" value="-" id="removerighthandtracks" name="removerighthandtracks">        
+                        <input type="button" class="form-control add-tracks" value="+" id="addrighthandtracks" name="addrighthandtracks">
+                        <input type="button" class="form-control remove-tracks" value="-" id="removerighthandtracks" name="removerighthandtracks">        
                     </div>
                 </div>
             </div>
@@ -114,8 +114,8 @@
                         </select>
                     </div>
                     <div class="form group col-md-2">
-                        <input type="button" class="form-control" value="+" id="addlefthandtracks" name="add"lefthandtracks>
-                        <input type="button" class="form-control" value="-" id="removelefthandtracks" name="removelefthandtracks">        
+                        <input type="button" class="form-control add-tracks" value="+" id="addlefthandtracks" name="add"lefthandtracks>
+                        <input type="button" class="form-control remove-tracks" value="-" id="removelefthandtracks" name="removelefthandtracks">        
                     </div>
                 </div>
             </div>
@@ -209,8 +209,14 @@
                 }
             });
 
-            $("#addbackgroundtracks").click(function(){
+            $(".add-tracks").click(function(){
                 var selectedTracks = $("#tracks").val();
+                for (i = 0; i < selectedTracks.length; i++){
+                    var track = selectedTracks[i];
+                    $('#' + this.id.replace("add", "")).append(`<option value="${track}">
+                                                                    ${track}
+                                                                </option>`); 
+                }
             });
         });
     </script>
