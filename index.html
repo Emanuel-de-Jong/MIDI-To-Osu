@@ -27,7 +27,7 @@
     <div class="container">
         <form action="php/convert.php" method="post">
             <div class="form-group">
-                <label for="midi" class="form-control" id="choose-file">Drag & Drop or choose a MIDI file</label>
+                <label for="midi" class="form-control" id="choose-file">Drag & Drop or browse for a MIDI file</label>
                 <input type="file" accept=".mid" id="midi" name="midi" required hidden />
             </div>
 
@@ -79,7 +79,8 @@
                     </div>
                     <div class="form-group col-md-2">
                         <input type="button" class="form-control add-tracks" value="+" id="add-background-tracks" />
-                        <input type="button" class="form-control remove-tracks" value="-" id="remove-background-tracks" />
+                        <input type="button" class="form-control remove-tracks" value="-"
+                            id="remove-background-tracks" />
                     </div>
                 </div>
             </div>
@@ -92,7 +93,8 @@
                     </div>
                     <div class="form group col-md-2">
                         <input type="button" class="form-control add-tracks" value="+" id="add-righthand-tracks" />
-                        <input type="button" class="form-control remove-tracks" value="-" id="remove-righthand-tracks" />
+                        <input type="button" class="form-control remove-tracks" value="-"
+                            id="remove-righthand-tracks" />
                     </div>
                 </div>
             </div>
@@ -169,14 +171,23 @@
 
     <script>
         $(document).ready(function () {
-            $("#midi").change(function () {
-                var extension = this.value.slice(-3);
-                if (extension != 'mid') {
-                    this.val("test");
+            $("#midi").change(function (file) {
+                var midi = $("#midi");
+
+                if(file instanceof File){
+                    midi.prop("files", [file]);
                 }
 
-                var midiFile = $("#midi").prop('files')[0];
+                var extension = this.value.slice(-3);
+                if (extension != 'mid') {
+                    $("#choose-file").text("Please choose a valid file type");
+                    return;
+                }
+
+                var midiFile = midi.prop('files')[0];
                 var reader = new FileReader();
+
+                $("#choose-file").text(midiFile.name + " selected");
 
                 reader.readAsArrayBuffer(midiFile);
                 reader.onloadend = function () {
@@ -186,6 +197,18 @@
 
                     alert(trackCount);
                 }
+            });
+
+            $("#choose-file").on('dragover', function(event){
+                event.preventDefault();
+                event.stopPropagation();
+            });
+
+            $("#choose-file").on('drop', function(event){
+                event.preventDefault();
+                event.stopPropagation();
+                var file = event.originalEvent.dataTransfer.files[0];
+                $("#midi").trigger("change", file);
             });
 
             $("#track-volume").slider({

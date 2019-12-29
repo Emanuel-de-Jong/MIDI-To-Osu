@@ -1,0 +1,2 @@
+require either left hand or right hand
+make slides prettier
