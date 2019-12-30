@@ -1,3 +1,2 @@
 require either left hand or right hand
-slider knob color
 slider centered

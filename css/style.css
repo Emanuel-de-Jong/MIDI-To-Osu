@@ -7,3 +7,12 @@ html{
     line-height: 200px;
     height: 200px;
 }
+
+.slider::-webkit-slider-thumb {
+    background-color: #b4b4b4;
+    border-radius: 3px;
+}
+
+.slider::-webkit-slider-runnable-track {
+    background-color: rgb(233, 233, 233);
+}
