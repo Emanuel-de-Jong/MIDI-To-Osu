@@ -61,12 +61,13 @@
                                 <span id="track-volume-value">0</span>
                             </div>
                         </div>
-                        <div class="row slider">
+                        <div class="row">
                             <div class="col-md-1">
                                 <span>-100</span>
                             </div>
                             <div class="col-md-10">
-                                <div id="track-volume"></div>
+                                <input type="range" class="custom-range slider" min="-100" max="100" step="5" value="0"
+                                    id="track-volume">
                             </div>
                             <div class="col-md-1">
                                 <span>100</span>
@@ -124,13 +125,13 @@
                         <span id="speed-value">1</span>
                     </div>
                 </div>
-                <div class="row slider">
+                <div class="row">
                     <div class="col-md-1">
                         <span>0.25</span>
                     </div>
                     <div class="col-md-10">
-                        <div id="speed"></div>
-                        <input type="hidden" name="speed" value="1">
+                        <input type="range" class="custom-range slider" min="0.25" max="3" step="0.25" value="1"
+                            id="speed" name="speed">
                     </div>
                     <div class="col-md-1">
                         <span>3</span>
@@ -145,13 +146,13 @@
                         <span id="max-chord-value">10</span>
                     </div>
                 </div>
-                <div class="row slider">
+                <div class="row">
                     <div class="col-md-1">
                         <span>1</span>
                     </div>
                     <div class="col-md-10">
-                        <div id="max-chord"></div>
-                        <input type="hidden" name="max-chord" value="10">
+                        <input type="range" class="custom-range slider" min="1" max="10" step="1" value="10"
+                            id="max-chord" name="max-chord">
                     </div>
                     <div class="col-md-1">
                         <span>10</span>
@@ -190,6 +191,10 @@
 
     <script>
         $(document).ready(function () {
+            $(".slider").on('mousemove', function () {
+                $("#" + this.id + "-value").text($("#" + this.id).val());
+            });
+
             $("#midi").change(function () {
                 var extension = this.value.slice(-3);
                 if (extension != 'mid') {
@@ -246,44 +251,6 @@
                 $("#midi").prop("files", files);
                 $("#midi").trigger("change");
             });
-
-
-            $("#track-volume").slider({
-                min: -100,
-                max: 100,
-                value: 0,
-                step: 5,
-                slide: function (event, ui) {
-                    $("#track-volume-value").html(ui.value);
-                }
-            });
-
-            $("#speed").slider({
-                min: 0.25,
-                max: 3,
-                value: 1,
-                step: 0.25,
-                slide: function (event, ui) {
-                    $("#speed-value").html(ui.value);
-                },
-                change: function (event, ui) {
-                    $("input[name*='speed']").val(ui.value);
-                }
-            });
-
-            $("#max-chord").slider({
-                min: 1,
-                max: 10,
-                value: 10,
-                step: 1,
-                slide: function (event, ui) {
-                    $("#max-chord-value").html(ui.value);
-                },
-                change: function (event, ui) {
-                    $("input[name*='max-chord']").val(ui.value);
-                }
-            });
-
 
             $(".add-tracks").click(function () {
                 var selectedTracks = $("#tracks").val();

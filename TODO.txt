@@ -1,2 +1,3 @@
 require either left hand or right hand
-make slides prettier
+slider knob color
+slider centered
