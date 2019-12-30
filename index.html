@@ -171,20 +171,14 @@
 
     <script>
         $(document).ready(function () {
-            $("#midi").change(function (file) {
-                var midi = $("#midi");
-
-                if(file instanceof File){
-                    midi.prop("files", [file]);
-                }
-
+            $("#midi").change(function () {
                 var extension = this.value.slice(-3);
                 if (extension != 'mid') {
                     $("#choose-file").text("Please choose a valid file type");
                     return;
                 }
 
-                var midiFile = midi.prop('files')[0];
+                var midiFile = $("#midi").prop('files')[0];
                 var reader = new FileReader();
 
                 $("#choose-file").text(midiFile.name + " selected");
@@ -199,17 +193,19 @@
                 }
             });
 
-            $("#choose-file").on('dragover', function(event){
+            $("#choose-file").on('dragover', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
             });
 
-            $("#choose-file").on('drop', function(event){
+            $("#choose-file").on('drop', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
-                var file = event.originalEvent.dataTransfer.files[0];
-                $("#midi").trigger("change", file);
+                var files = event.originalEvent.dataTransfer.files;
+                $("#midi").prop("files", files);
+                $("#midi").trigger("change");
             });
+
 
             $("#track-volume").slider({
                 min: -100,
@@ -240,6 +236,7 @@
                     $("#max-chord-value").html(ui.value);
                 }
             });
+
 
             $(".add-tracks").click(function () {
                 var selectedTracks = $("#tracks").val();
