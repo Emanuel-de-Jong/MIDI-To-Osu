@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MIDItoOSU</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style-onecol.css" />
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/functions.js"></script>
+</head>
+
+<body>
+    <header>
+        <div id="header-content">
+            <h1>MIDItoOSU</h1>
+            <p>A MIDI to osu!mania 10k beatmap converter</p>
+        </div>
+    </header>
+
+    <main>
+        <div id="main-content">
+            <form action="php/convert.php" method="post">
+                <div class="form-group">
+                    <label for="midi" class="form-control" id="choose-file">
+                        Drag & Drop or click here to browse for a MIDI file
+                    </label>
+                    <input type="file" accept=".mid" id="midi" name="midi" hidden />
+                </div>
+
+                <div class="form-group">
+                    <label for="tracks">Tracks:</label>
+                    <select multiple class="form-control" id="tracks" name="tracks"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="track-sound">Track settings:</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="track-preview">Preview:</label>
+                            <input type="button" class="form-control" value="play" id="track-preview" />
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="track-sound">Sound:</label>
+                            <select class="form-control" id="track-sound" name="track-sound">
+                                <option value="Custom">Add custom sound</option>
+                                <option value="Piano 1" selected>Piano 1</option>
+                                <option value="Piano 2">Piano 2</option>
+                                <option value="Piano 3">Piano 3</option>
+                                <option value="Violin 1">Violin 1</option>
+                                <option value="Violin 2">Violin 2</option>
+                                <option value="Trumpet">Trumpet</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="track-volume" id="track-volume-label">Volume:</label><br />
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <span id="track-volume-value">0</span>
+                                </div>
+                            </div>
+                            <div class="row slider-div">
+                                <div class="col-md-2">
+                                    <span>-100</span>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="range" class="custom-range" min="-100" max="100" step="5" value="0"
+                                        id="track-volume">
+                                </div>
+                                <div class="col-md-2">
+                                    <span>100</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="background-tracks">Background tracks:</label>
+                    <div class="form-row track-category-div">
+                        <div class="form-group col-md-10">
+                            <select multiple class="form-control" id="background-tracks"
+                                name="background-tracks"></select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <input type="button" class="form-control add-tracks" value="Add"
+                                id="add-background-tracks" />
+                            <div class="track-category-button-seperator"></div>
+                            <input type="button" class="form-control remove-tracks" value="Remove"
+                                id="remove-background-tracks" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="righthand-tracks">Righthand tracks:</label>
+                    <div class="form-row track-category-div">
+                        <div class="form-group col-md-10">
+                            <select multiple class="form-control" id="righthand-tracks"
+                                name="righthand-tracks"></select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <input type="button" class="form-control add-tracks" value="Add"
+                                id="add-righthand-tracks" />
+                            <div class="track-category-button-seperator"></div>
+                            <input type="button" class="form-control remove-tracks" value="Remove"
+                                id="remove-righthand-tracks" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lefthand-tracks">Lefthand tracks:</label>
+                    <div class="form-row track-category-div">
+                        <div class="form-group col-md-10">
+                            <select multiple class="form-control" id="lefthand-tracks" name="lefthand-tracks"></select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <input type="button" class="form-control add-tracks" value="Add" id="add-lefthand-tracks" />
+                            <div class="track-category-button-seperator"></div>
+                            <input type="button" class="form-control remove-tracks" value="Remove"
+                                id="remove-lefthand-tracks" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="speed">Speed:</label><br />
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span id="speed-value">1</span>
+                        </div>
+                    </div>
+                    <div class="row slider-div">
+                        <div class="col-md-2">
+                            <span>0.25</span>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="range" class="custom-range" min="0.25" max="3" step="0.25" value="1" id="speed"
+                                name="speed">
+                        </div>
+                        <div class="col-md-2">
+                            <span>3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="max-chord">Biggest chord allowed:</label><br />
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span id="max-chord-value">10</span>
+                        </div>
+                    </div>
+                    <div class="row slider-div">
+                        <div class="col-md-2">
+                            <span>1</span>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="range" class="custom-range" min="1" max="10" step="1" value="10" id="max-chord"
+                                name="max-chord">
+                        </div>
+                        <div class="col-md-2">
+                            <span>10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check">
+                    <label for="singletone" class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="singletone" name="singletone" />
+                        Disregard MIDI volume variation
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="no-ln" class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="no-ln" name="no-ln" />
+                        No LN
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label for="merge-notes" class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="merge-notes" name="merge-notes" />
+                        Merge notes faster than 1/4
+                    </label>
+                </div>
+
+                <br><br><br><br><br>
+                <div class="form-group text-center">
+                    <button type="submit" id="submit" class="btn-lg btn-primary">Convert</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        $(document).ready(function () {
+            $("#track-preview").click(function (event) {
+                alert("work in progress");
+            });
+            $("#track-sound").change(function (event) {
+                if ($("#track-sound").val() == "Custom") {
+                    alert("work in progress");
+                }
+            });
+
+            $("form").submit(function (event) {
+                if (!uploadedFileIsMidi()) {
+                    alert("Please upload a valid midi file first!");
+                } else if ($('#righthand-tracks option').length == 0 &&
+                    $('#lefthand-tracks option').length == 0) {
+                    alert("Either Righthand tracks or Lefthand tracks needs at least 1 track " +
+                        "for gameplay to be possible!");
+                } else {
+                    return;
+                }
+
+                event.preventDefault();
+            });
+
+            $("input[type=range]").on("mousemove", function () {
+                $("#" + this.id + "-value").text(this.value);
+            });
+
+            $("#midi").change(function () {
+                $("#tracks").empty();
+                $("#background-tracks").empty();
+                $("#lefthand-tracks").empty();
+                $("#righthand-tracks").empty();
+
+                if (!uploadedFileIsMidi()) {
+                    $("#choose-file").text("Please choose a valid file type");
+                    return;
+                }
+
+                var midiFile = $("#midi").prop("files")[0];
+                var reader = new FileReader();
+
+                $("#choose-file").text(midiFile.name + " selected");
+
+                reader.readAsArrayBuffer(midiFile);
+                reader.onloadend = function () {
+                    var buffer = reader.result;
+                    var view = new DataView(buffer, 0, 14);
+                    var trackCount = view.getUint16(10);
+
+                    for (i = 1; i < trackCount + 1; i++) {
+                        $("#tracks").append(`
+                            <option value="Track ` + i + `">
+                                Track ` + i + `
+                            </option>
+                        `);
+                    }
+                }
+            });
+
+            $("#choose-file").on("dragover", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            });
+
+            $("#choose-file").on("dragenter", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                $("#choose-file").text("Drop your file here");
+            });
+
+            $("#choose-file").on("dragleave", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                $("#choose-file").text("Drag & Drop or click here to browse for a MIDI file");
+            });
+
+            $("#choose-file").on("drop", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                var files = event.originalEvent.dataTransfer.files;
+                $("#midi").prop("files", files);
+                $("#midi").trigger("change");
+            });
+
+            $(".add-tracks").click(function () {
+                var selectedTracks = $("#tracks").val();
+                var select = $("#" + this.id.replace("add-", ""));
+                var selectTracks = $.map(
+                    $("#" + select.attr("id") + " option"),
+                    function (event) {
+                        return event.value;
+                    }
+                );
+                for (i = 0; i < selectedTracks.length; i++) {
+                    var track = selectedTracks[i];
+                    if (!selectTracks.includes(track)) {
+                        select.append(`
+                        <option value="${track}">
+                            ${track}
+                        </option>
+                    `);
+                    }
+                }
+            });
+
+            $(".remove-tracks").click(function () {
+                var select = $("#" + this.id.replace("remove-", ""));
+                $("option:selected", select).remove();
+            });
+        });
+    </script>
+</body>
+
+</html>
