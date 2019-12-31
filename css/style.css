@@ -24,6 +24,7 @@ html{
 .slider::-webkit-slider-runnable-track {
     background-color: rgb(240, 240, 240);
 }
+
 .slider:focus::-webkit-slider-thumb {
     border-color: #80bdff;
     outline: 0;

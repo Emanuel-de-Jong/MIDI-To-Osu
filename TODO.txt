@@ -1,4 +1,3 @@
-validation: a file selected, at least one track on either Righthand tracks or Lefthand tracks.
 styling: rearange the inputs so it doesn't look like shit.
 preview: play uppermost selected track with selected sound and selected volume on 'play' press.
 track settings saving: save the selected sound and volume per selected track.

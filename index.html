@@ -13,6 +13,8 @@
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/functions.js"></script>
@@ -30,7 +32,7 @@
                 <label for="midi" class="form-control" id="choose-file">
                     Drag & Drop or click here to browse for a MIDI file
                 </label>
-                <input type="file" accept=".mid" id="midi" name="midi" required hidden />
+                <input type="file" accept=".mid" id="midi" name="midi" hidden />
             </div>
 
             <div class="form-group">
@@ -66,7 +68,7 @@
                                 <span>-100</span>
                             </div>
                             <div class="col-md-8">
-                                <input type="range" class="custom-range slider" min="-100" max="100" step="5" value="0"
+                                <input type="range" class="custom-range" min="-100" max="100" step="5" value="0"
                                     id="track-volume">
                             </div>
                             <div class="col-md-2">
@@ -130,8 +132,8 @@
                         <span>0.25</span>
                     </div>
                     <div class="col-md-8">
-                        <input type="range" class="custom-range slider" min="0.25" max="3" step="0.25" value="1"
-                            id="speed" name="speed">
+                        <input type="range" class="custom-range" min="0.25" max="3" step="0.25" value="1" id="speed"
+                            name="speed">
                     </div>
                     <div class="col-md-2">
                         <span>3</span>
@@ -151,8 +153,8 @@
                         <span>1</span>
                     </div>
                     <div class="col-md-8">
-                        <input type="range" class="custom-range slider" min="1" max="10" step="1" value="10"
-                            id="max-chord" name="max-chord">
+                        <input type="range" class="custom-range" min="1" max="10" step="1" value="10" id="max-chord"
+                            name="max-chord">
                     </div>
                     <div class="col-md-2">
                         <span>10</span>
@@ -191,18 +193,36 @@
 
     <script>
         $(document).ready(function () {
-            $(".slider").on('mousemove', function () {
-                $("#" + this.id + "-value").text($("#" + this.id).val());
+            $("form").submit(function (event) {
+                if (!uploadedFileIsMidi()) {
+                    alert("Please upload a valid midi file first!");
+                } else if ($('#righthand-tracks option').length == 0 &&
+                    $('#righthand-tracks option').length == 0) {
+                    alert("Either Righthand tracks or Lefthand tracks needs at least 1 track " +
+                        "for gameplay to be possible!");
+                } else{
+                    return;
+                }
+                
+                event.preventDefault();
+            });
+
+            $("input[type=range]").on("mousemove", function () {
+                $("#" + this.id + "-value").text(this.value);
             });
 
             $("#midi").change(function () {
-                var extension = this.value.slice(-3);
-                if (extension != 'mid') {
+                $("#tracks").empty();
+                $("#background-tracks").empty();
+                $("#lefthand-tracks").empty();
+                $("#righthand-tracks").empty();
+
+                if (!uploadedFileIsMidi()) {
                     $("#choose-file").text("Please choose a valid file type");
                     return;
                 }
 
-                var midiFile = $("#midi").prop('files')[0];
+                var midiFile = $("#midi").prop("files")[0];
                 var reader = new FileReader();
 
                 $("#choose-file").text(midiFile.name + " selected");
@@ -213,10 +233,6 @@
                     var view = new DataView(buffer, 0, 14);
                     var trackCount = view.getUint16(10);
 
-                    $("#tracks").empty();
-                    $("#background-tracks").empty();
-                    $("#lefthand-tracks").empty();
-                    $("#righthand-tracks").empty();
                     for (i = 1; i < trackCount + 1; i++) {
                         $("#tracks").append(`
                             <option value="Track ` + i + `">
@@ -227,24 +243,24 @@
                 }
             });
 
-            $("#choose-file").on('dragover', function (event) {
+            $("#choose-file").on("dragover", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
             });
 
-            $("#choose-file").on('dragenter', function (event) {
+            $("#choose-file").on("dragenter", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 $("#choose-file").text("Drop your file here");
             });
 
-            $("#choose-file").on('dragleave', function (event) {
+            $("#choose-file").on("dragleave", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 $("#choose-file").text("Drag & Drop or click here to browse for a MIDI file");
             });
 
-            $("#choose-file").on('drop', function (event) {
+            $("#choose-file").on("drop", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 var files = event.originalEvent.dataTransfer.files;
@@ -257,8 +273,8 @@
                 var select = $("#" + this.id.replace("add-", ""));
                 var selectTracks = $.map(
                     $("#" + select.attr("id") + " option"),
-                    function (e) {
-                        return e.value;
+                    function (event) {
+                        return event.value;
                     }
                 );
                 for (i = 0; i < selectedTracks.length; i++) {
