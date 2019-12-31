@@ -2,17 +2,40 @@ html{
     background-color: lightgray;
 }
 
+
 #choose-file{
     text-align: center;
     line-height: 200px;
     height: 200px;
 }
-
-.slider::-webkit-slider-thumb {
-    background-color: #b4b4b4;
-    border-radius: 3px;
+#choose-file:hover{
+    cursor: pointer;
 }
 
+
+.slider-div div{
+    text-align: center;
+}
+
+.slider::-webkit-slider-thumb {
+    background-color: rgb(200, 200, 200);
+    border-radius: 3px;
+}
 .slider::-webkit-slider-runnable-track {
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(240, 240, 240);
+}
+.slider:focus::-webkit-slider-thumb {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.slider:focus::-moz-range-thumb {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+.slider:focus::-ms-thumb {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
