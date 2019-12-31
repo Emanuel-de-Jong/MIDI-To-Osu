@@ -1,3 +1,3 @@
 <?php
-echo "test";
+echo $_POST["max-chord"];
 ?>

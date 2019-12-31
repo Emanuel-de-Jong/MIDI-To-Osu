@@ -197,7 +197,7 @@
                 if (!uploadedFileIsMidi()) {
                     alert("Please upload a valid midi file first!");
                 } else if ($('#righthand-tracks option').length == 0 &&
-                    $('#righthand-tracks option').length == 0) {
+                    $('#lefthand-tracks option').length == 0) {
                     alert("Either Righthand tracks or Lefthand tracks needs at least 1 track " +
                         "for gameplay to be possible!");
                 } else{
