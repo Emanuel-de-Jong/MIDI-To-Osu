@@ -21,14 +21,14 @@
 </head>
 
 <body>
-    <div id="header">
+    <header>
         <div id="header-content">
             <h1>MIDItoOSU</h1>
             <p>A MIDI to osu!mania 10k beatmap converter</p>
         </div>
-    </div>
+    </header>
 
-    <div id="main">
+    <main>
         <div id="main-content">
             <form action="php/convert.php" method="post">
                 <div class="form-group">
@@ -37,13 +37,12 @@
                     </label>
                     <input type="file" accept=".mid" id="midi" name="midi" hidden />
                 </div>
-    
+
                 <div class="form-group">
                     <label for="tracks">Tracks:</label>
-                    <select multiple class="form-control" id="tracks" name="tracks">
-                    </select>
+                    <select multiple class="form-control" id="tracks" name="tracks"></select>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="track-sound">Track settings:</label>
                     <div class="form-row">
@@ -85,35 +84,39 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="background-tracks">Background tracks:</label>
                     <div class="form-row">
                         <div class="form-group col-md-10">
-                            <select multiple class="form-control" id="background-tracks" name="background-tracks"></select>
+                            <select multiple class="form-control" id="background-tracks"
+                                name="background-tracks"></select>
                         </div>
                         <div class="form-group col-md-2">
-                            <input type="button" class="form-control add-tracks" value="Add" id="add-background-tracks" />
+                            <input type="button" class="form-control add-tracks" value="Add"
+                                id="add-background-tracks" />
                             <input type="button" class="form-control remove-tracks" value="Remove"
                                 id="remove-background-tracks" />
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="righthand-tracks">Righthand tracks:</label>
                     <div class="form-row">
                         <div class="form-group col-md-10">
-                            <select multiple class="form-control" id="righthand-tracks" name="righthand-tracks"></select>
+                            <select multiple class="form-control" id="righthand-tracks"
+                                name="righthand-tracks"></select>
                         </div>
                         <div class="form-group col-md-2">
-                            <input type="button" class="form-control add-tracks" value="Add" id="add-righthand-tracks" />
+                            <input type="button" class="form-control add-tracks" value="Add"
+                                id="add-righthand-tracks" />
                             <input type="button" class="form-control remove-tracks" value="Remove"
                                 id="remove-righthand-tracks" />
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="lefthand-tracks">Lefthand tracks:</label>
                     <div class="form-row">
@@ -122,11 +125,12 @@
                         </div>
                         <div class="form-group col-md-2">
                             <input type="button" class="form-control add-tracks" value="Add" id="add-lefthand-tracks" />
-                            <input type="button" class="form-control remove-tracks" value="Remove" id="remove-lefthand-tracks" />
+                            <input type="button" class="form-control remove-tracks" value="Remove"
+                                id="remove-lefthand-tracks" />
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="speed">Speed:</label><br />
                     <div class="row">
@@ -147,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="max-chord">Biggest chord allowed:</label><br />
                     <div class="row">
@@ -168,38 +172,47 @@
                         </div>
                     </div>
                 </div>
-    
-                <div class="form-group form-check">
+
+                <div class="form-check">
                     <label for="singletone" class="form-check-label">
                         <input class="form-check-input" type="checkbox" id="singletone" name="singletone" />
                         Disregard MIDI volume variation
                     </label>
                 </div>
-    
-                <div class="form-group form-check">
+
+                <div class="form-check">
                     <label for="no-ln" class="form-check-label">
                         <input class="form-check-input" type="checkbox" id="no-ln" name="no-ln" />
                         No LN
                     </label>
                 </div>
-    
-                <div class="form-group form-check">
+
+                <div class="form-check">
                     <label for="merge-notes" class="form-check-label">
                         <input class="form-check-input" type="checkbox" id="merge-notes" name="merge-notes" />
                         Merge notes faster than 1/4
                     </label>
                 </div>
-    
-                <br><br>
+
+                <br><br><br><br><br>
                 <div class="form-group text-center">
-                    <button type="submit" class="btn-lg btn-primary">Convert</button>
+                    <button type="submit" id="submit" class="btn-lg btn-primary">Convert</button>
                 </div>
             </form>
         </div>
-    </div>
+    </main>
 
     <script>
         $(document).ready(function () {
+            $("#track-preview").click(function (event) {
+                alert("work in progress");
+            });
+            $("#track-sound").change(function (event) {
+                if ($("#track-sound").val() == "Custom") {
+                    alert("work in progress");
+                }
+            });
+
             $("form").submit(function (event) {
                 if (!uploadedFileIsMidi()) {
                     alert("Please upload a valid midi file first!");
@@ -207,10 +220,10 @@
                     $('#lefthand-tracks option').length == 0) {
                     alert("Either Righthand tracks or Lefthand tracks needs at least 1 track " +
                         "for gameplay to be possible!");
-                } else{
+                } else {
                     return;
                 }
-                
+
                 event.preventDefault();
             });
 

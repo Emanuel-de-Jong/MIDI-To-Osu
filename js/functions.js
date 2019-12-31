@@ -1,5 +1,5 @@
 function uploadedFileIsMidi() {
-    if(!$("#midi").val()){
+    if (!$("#midi").val()) {
         return false;
     }
 
