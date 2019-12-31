@@ -44,6 +44,11 @@ main {
 }
 
 
+#track-volume-label {
+    margin: 0;
+}
+
+
 .slider-div div {
     text-align: center;
 }
@@ -74,6 +79,16 @@ input[type=range]:focus::-ms-thumb {
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+.track-category-div div {
+    margin: auto;
+}
+
+
+.track-category-button-seperator {
+    height: 8px;
 }
 
 

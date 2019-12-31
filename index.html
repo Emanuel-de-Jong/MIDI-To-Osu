@@ -13,9 +13,6 @@
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/additional-methods.min.js"></script>
-    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/functions.js"></script>
 </head>
@@ -63,7 +60,7 @@
                             </select>
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="track-volume">Volume:</label><br />
+                            <label for="track-volume" id="track-volume-label">Volume:</label><br />
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <span id="track-volume-value">0</span>
@@ -87,7 +84,7 @@
 
                 <div class="form-group">
                     <label for="background-tracks">Background tracks:</label>
-                    <div class="form-row">
+                    <div class="form-row track-category-div">
                         <div class="form-group col-md-10">
                             <select multiple class="form-control" id="background-tracks"
                                 name="background-tracks"></select>
@@ -95,6 +92,7 @@
                         <div class="form-group col-md-2">
                             <input type="button" class="form-control add-tracks" value="Add"
                                 id="add-background-tracks" />
+                            <div class="track-category-button-seperator"></div>
                             <input type="button" class="form-control remove-tracks" value="Remove"
                                 id="remove-background-tracks" />
                         </div>
@@ -103,7 +101,7 @@
 
                 <div class="form-group">
                     <label for="righthand-tracks">Righthand tracks:</label>
-                    <div class="form-row">
+                    <div class="form-row track-category-div">
                         <div class="form-group col-md-10">
                             <select multiple class="form-control" id="righthand-tracks"
                                 name="righthand-tracks"></select>
@@ -111,6 +109,7 @@
                         <div class="form-group col-md-2">
                             <input type="button" class="form-control add-tracks" value="Add"
                                 id="add-righthand-tracks" />
+                            <div class="track-category-button-seperator"></div>
                             <input type="button" class="form-control remove-tracks" value="Remove"
                                 id="remove-righthand-tracks" />
                         </div>
@@ -119,12 +118,13 @@
 
                 <div class="form-group">
                     <label for="lefthand-tracks">Lefthand tracks:</label>
-                    <div class="form-row">
+                    <div class="form-row track-category-div">
                         <div class="form-group col-md-10">
                             <select multiple class="form-control" id="lefthand-tracks" name="lefthand-tracks"></select>
                         </div>
                         <div class="form-group col-md-2">
                             <input type="button" class="form-control add-tracks" value="Add" id="add-lefthand-tracks" />
+                            <div class="track-category-button-seperator"></div>
                             <input type="button" class="form-control remove-tracks" value="Remove"
                                 id="remove-lefthand-tracks" />
                         </div>
