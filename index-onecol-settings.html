@@ -26,8 +26,8 @@
     </header>
 
     <main>
-        <div id="main-content">
-            <form action="php/convert.php" method="post">
+        <form action="php/convert.php" method="post">
+            <div id="main-content">
                 <div class="form-group">
                     <label for="midi" class="form-control" id="choose-file">
                         Drag & Drop or click here to browse for a MIDI file
@@ -131,6 +131,13 @@
                     </div>
                 </div>
 
+
+            </div>
+
+            <div id="settings">
+                <h2>Osu file settings</h2>
+
+                <br><br><br>
                 <div class="form-group">
                     <label for="speed">Speed:</label><br />
                     <div class="row">
@@ -193,13 +200,14 @@
                         Merge notes faster than 1/4
                     </label>
                 </div>
+            </div>
 
-                <br><br><br><br><br>
-                <div class="form-group text-center">
-                    <button type="submit" id="submit" class="btn-lg btn-primary">Convert</button>
-                </div>
-            </form>
-        </div>
+            <br><br><br><br><br>
+            <div class="form-group text-center">
+                <button type="submit" id="submit" class="btn-lg btn-primary">Convert</button>
+            </div>
+
+        </form>
     </main>
 
     <script>

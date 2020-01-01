@@ -29,9 +29,24 @@ main {
 
 #main-content {
     margin: auto;
-    width: 50%;
+    margin-right: 40%;
+    width: 40%;
 }
 
+#settings {
+    position: absolute;
+    top: 400px;
+    right: 5%;
+    width: 450px;
+    height: 500px;
+    border-radius: 50px;
+    background-color: rgb(230, 230, 230);
+    padding: 20px 50px;
+}
+
+#settings h2{
+    text-align: center;
+}
 
 #choose-file {
     text-align: center;
