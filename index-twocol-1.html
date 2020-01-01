@@ -44,11 +44,11 @@
                     <div class="form-group">
                         <label for="track-sound">Track settings:</label>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-2">
                                 <label for="track-preview">Preview:</label>
                                 <input type="button" class="form-control" value="play" id="track-preview" />
                             </div>
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-5">
                                 <label for="track-sound">Sound:</label>
                                 <select class="form-control" id="track-sound" name="track-sound">
                                     <option value="Custom">Add custom sound</option>
@@ -60,26 +60,25 @@
                                     <option value="Trumpet">Trumpet</option>
                                 </select>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="track-volume" id="track-volume-label">Volume:</label><br />
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <span id="track-volume-value">0</span>
-                            </div>
-                        </div>
-                        <div class="row slider-div">
-                            <div class="col-md-2">
-                                <span>-100</span>
-                            </div>
-                            <div class="col-md-8">
-                                <input type="range" class="custom-range" min="-100" max="100" step="5" value="0"
-                                    id="track-volume">
-                            </div>
-                            <div class="col-md-2">
-                                <span>100</span>
+                            <div class="form-group col-md-5">
+                                <label for="track-volume" id="track-volume-label">Volume:</label><br />
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <span id="track-volume-value">0</span>
+                                    </div>
+                                </div>
+                                <div class="row slider-div">
+                                    <div class="col-md-2">
+                                        <span>-100</span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="range" class="custom-range" min="-100" max="100" step="5" value="0"
+                                            id="track-volume">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span>100</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
