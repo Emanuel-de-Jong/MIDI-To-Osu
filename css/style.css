@@ -1,6 +1,6 @@
 header {
     position: relative;
-    background-color: rgb(211, 211, 211);
+    background-color: rgb(200, 200, 200);
     height: 240px;
 }
 
@@ -22,14 +22,19 @@ header {
 
 
 main {
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(220, 220, 220);
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-#main-content {
-    margin: auto;
-    width: 50%;
+#main-content-1 {
+    padding-left: 13%;
+    padding-right: 5%;
+}
+
+#main-content-2 {
+    padding-left: 5%;
+    padding-right: 13%;
 }
 
 
@@ -44,6 +49,31 @@ main {
 }
 
 
+#tracks {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+#tracks:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+
+
 #track-volume-label {
     margin: 0;
 }
@@ -53,6 +83,11 @@ main {
     text-align: center;
 }
 
+
+.table tbody tr.highlight td {
+    background-color: #007bff;
+    color: #fff;
+}
 
 input[type=range]::-webkit-slider-thumb {
     background-color: rgb(211, 211, 211);
