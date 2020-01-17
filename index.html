@@ -208,11 +208,8 @@
             $("form").submit(function (event) {
                 if (!uploadedFileIsMidi()) {
                     alert("Please upload a valid midi file first!");
-                } else if ($('#righthand-tracks option').length == 0 &&
-                    $('#lefthand-tracks option').length == 0) {
-                    alert("Either Righthand tracks or Lefthand tracks needs at least 1 track " +
-                        "for gameplay to be possible!");
-                } else {
+                }
+                else{
                     return;
                 }
 
@@ -224,11 +221,6 @@
             });
 
             $("#midi").change(function () {
-                $("#tracks").empty();
-                $("#background-tracks").empty();
-                $("#lefthand-tracks").empty();
-                $("#righthand-tracks").empty();
-
                 if (!uploadedFileIsMidi()) {
                     $("#choose-file").text("Please choose a valid file type");
                     return;
@@ -278,32 +270,6 @@
                 var files = event.originalEvent.dataTransfer.files;
                 $("#midi").prop("files", files);
                 $("#midi").trigger("change");
-            });
-
-            $(".add-tracks").click(function () {
-                var selectedTracks = $("#tracks").val();
-                var select = $("#" + this.id.replace("add-", ""));
-                var selectTracks = $.map(
-                    $("#" + select.attr("id") + " option"),
-                    function (event) {
-                        return event.value;
-                    }
-                );
-                for (i = 0; i < selectedTracks.length; i++) {
-                    var track = selectedTracks[i];
-                    if (!selectTracks.includes(track)) {
-                        select.append(`
-                        <option value="${track}">
-                            ${track}
-                        </option>
-                    `);
-                    }
-                }
-            });
-
-            $(".remove-tracks").click(function () {
-                var select = $("#" + this.id.replace("remove-", ""));
-                $("option:selected", select).remove();
             });
         });
     </script>
