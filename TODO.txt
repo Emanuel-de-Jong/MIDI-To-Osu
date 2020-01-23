@@ -1,4 +1,9 @@
-no screen movement on track row select
-add track rows
+FEATURES
+add track rows on midi upload
 play preview
 add custom sounds
+
+STYLING
+no screen movement on track row select
+main content always fills view till bottom
+convert btn always X pixels above the bottom
