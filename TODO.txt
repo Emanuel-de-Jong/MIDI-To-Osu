@@ -3,5 +3,4 @@ play preview
 add custom sounds
 
 STYLING
-don't open options when clicking hand and bg checkboxes
 no screen movement on track row select
