@@ -1,9 +1,7 @@
 FEATURES
-add track rows on midi upload
 play preview
 add custom sounds
 
 STYLING
+don't open options when clicking hand and bg checkboxes
 no screen movement on track row select
-main content always fills view till bottom
-convert btn always X pixels above the bottom

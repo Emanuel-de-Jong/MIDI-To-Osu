@@ -7,12 +7,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="css/jquery-ui.min.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
 
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/functions.js"></script>
 </head>
@@ -76,7 +74,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="track-1-options" hidden>
+                                    <tr id="track-1-options-1" hidden>
                                         <td>
                                             <input type="button" class="form-control track-preview" value="play"
                                                 id="track-1-preview" />
@@ -114,6 +112,27 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr id="track-1-options-2" hidden>
+                                        <td colspan="4">
+                                            <div class="row">
+                                                <div class="col-md-12 text-center">
+                                                    <span id="track-1-timebar-value">0</span>
+                                                </div>
+                                            </div>
+                                            <div class="row range-div">
+                                                <div class="col-md-2">
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input type="range" class="custom-range track-timebar" min="0"
+                                                        max="180" step="1" value="0" id="track-1-timebar">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span>180</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
 
                                     <tr class="track-row" id="track-2">
                                         <td>Track 2</td>
@@ -139,7 +158,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="track-2-options" hidden>
+                                    <tr id="track-2-options-1" hidden>
                                         <td>
                                             <input type="button" class="form-control track-preview" value="play"
                                                 id="track-2-preview" />
@@ -177,132 +196,27 @@
                                             </div>
                                         </td>
                                     </tr>
-
-                                    <!-- <tr class="track-row" id="track-3">
-                                        <td>Track 3</td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="track-3-lefthand" name="track-3-lefthand">
-                                                <label class="custom-control-label" for="track-3-lefthand"></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="track-3-righthand" name="track-3-righthand">
-                                                <label class="custom-control-label" for="track-3-righthand"></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="track-3-background" name="track-3-background">
-                                                <label class="custom-control-label" for="track-3-background"></label>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr id="track-3-options" hidden>
-                                        <td>
-                                            <input type="button" class="form-control track-preview" value="play"
-                                                id="track-3-preview" />
-                                        </td>
-                                        <td>
-                                            <select class="form-control track-sound" id="track-3-sound"
-                                                name="track-3-sound">
-                                                <option value="Custom">Add custom sound</option>
-                                                <option value="Piano 1" selected>Piano 1</option>
-                                                <option value="Piano 2">Piano 2</option>
-                                                <option value="Piano 3">Piano 3</option>
-                                                <option value="Violin 1">Violin 1</option>
-                                                <option value="Violin 2">Violin 2</option>
-                                                <option value="Trumpet">Trumpet</option>
-                                            </select>
-                                        </td>
-                                        <td colspan="2">
+                                    <tr id="track-2-options-2" hidden>
+                                        <td colspan="4">
                                             <div class="row">
                                                 <div class="col-md-12 text-center">
-                                                    <span id="track-3-volume-value">100</span>
+                                                    <span id="track-2-timebar-value">0</span>
                                                 </div>
                                             </div>
                                             <div class="row range-div">
                                                 <div class="col-md-2">
-                                                    <span>No sound</span>
+                                                    <span>0</span>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="range" class="custom-range track-volume" min="0"
-                                                        max="200" step="5" value="100" id="track-3-volume"
-                                                        name="track-3-volume">
+                                                    <input type="range" class="custom-range track-timebar" min="0"
+                                                        max="180" step="1" value="0" id="track-2-timebar">
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span>200</span>
+                                                    <span>180</span>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr> -->
-
-                                    <!-- <tr class="track-row" id="track-4">
-                                        <td>Track 4</td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="track-4-lefthand" name="track-4-lefthand">
-                                                <label class="custom-control-label" for="track-4-lefthand"></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="track-4-righthand" name="track-4-righthand">
-                                                <label class="custom-control-label" for="track-4-righthand"></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="track-4-background" name="track-4-background">
-                                                <label class="custom-control-label" for="track-4-background"></label>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="track-4-options" hidden>
-                                        <td>
-                                            <input type="button" class="form-control track-preview" value="play"
-                                                id="track-4-preview" />
-                                        </td>
-                                        <td>
-                                            <select class="form-control track-sound" id="track-4-sound"
-                                                name="track-4-sound">
-                                                <option value="Custom">Add custom sound</option>
-                                                <option value="Piano 1" selected>Piano 1</option>
-                                                <option value="Piano 2">Piano 2</option>
-                                                <option value="Piano 3">Piano 3</option>
-                                                <option value="Violin 1">Violin 1</option>
-                                                <option value="Violin 2">Violin 2</option>
-                                                <option value="Trumpet">Trumpet</option>
-                                            </select>
-                                        </td>
-                                        <td colspan="2">
-                                            <div class="row">
-                                                <div class="col-md-12 text-center">
-                                                    <span id="track-4-volume-value">100</span>
-                                                </div>
-                                            </div>
-                                            <div class="row range-div">
-                                                <div class="col-md-2">
-                                                    <span>No sound</span>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input type="range" class="custom-range track-volume" min="0"
-                                                        max="200" step="5" value="100" id="track-4-volume"
-                                                        name="track-4-volume">
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <span>200</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>
@@ -429,7 +343,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr id="track-` + trackNumber + `-options" hidden>
+                            <tr id="track-` + trackNumber + `-options-1" hidden>
                                 <td>
                                     <input type="button" class="form-control track-preview" value="play"
                                         id="track-` + trackNumber + `-preview" />
@@ -463,6 +377,27 @@
                                         </div>
                                         <div class="col-md-2">
                                             <span>200</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr id="track-` + trackNumber + `-options-2" hidden>
+                                <td colspan="4">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <span id="track-` + trackNumber + `-timebar-value">0</span>
+                                        </div>
+                                    </div>
+                                    <div class="row range-div">
+                                        <div class="col-md-2">
+                                            <span>0</span>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <input type="range" class="custom-range track-timebar" min="0"
+                                                max="180" step="1" value="0" id="track-` + trackNumber + `-timebar">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span>180</span>
                                         </div>
                                     </div>
                                 </td>
@@ -504,15 +439,18 @@
             });
 
             $("#tracks-table").on("click", ".track-row", function() {
-                var trackOptions = $("#" + this.id + "-options");
+                var trackOptions1 = $("#" + this.id + "-options-1");
+                var trackOptions2 = $("#" + this.id + "-options-2");
                 console.log(this.id);
 
                 if ($(this).hasClass("track-row-open")) {
                     $(this).removeClass("track-row-open");
-                    trackOptions.attr("hidden", true);
+                    trackOptions1.attr("hidden", true);
+                    trackOptions2.attr("hidden", true);
                 } else {
                     $(this).addClass("track-row-open");
-                    trackOptions.removeAttr("hidden");
+                    trackOptions1.removeAttr("hidden");
+                    trackOptions2.removeAttr("hidden");
                 }
             });
 
@@ -535,6 +473,10 @@
                     text = this.value;
                 }
                 $("#" + this.id + "-value").text(text);
+            });
+
+            $("#tracks-table").on("mousemove", ".track-timebar", function() {
+                $("#" + this.id + "-value").text(this.value);
             });
 
 
