@@ -1,18 +1,4 @@
-styling: rearange the inputs so it doesn't look like shit.
-preview: play uppermost selected track with selected sound and selected volume on 'play' press.
-add custom sounds.
-track settings saving: save the selected sound and volume per selected track.
-
-
-
-file upload
-per track
-	name, left hand, right hand, background
-	after pressing plus
-		play, sound, volume
-		timing bar
-speed slide
-merge notes faster than slide
-no ln check
-all ln check
-disregard midi file volumes check
+no screen movement on track row select
+add track rows
+play preview
+add custom sounds

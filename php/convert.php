@@ -1,3 +1,3 @@
 <?php
-echo $_POST["max-chord"];
+echo $_POST["speed"];
 ?>
