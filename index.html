@@ -186,18 +186,38 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="no-ln"><b>Other:</b></label>
-                        <div class="custom-control custom-checkbox check">
-                            <input type="checkbox" class="custom-control-input" id="no-ln" name="no-ln">
-                            <label class="custom-control-label" for="no-ln" title="Will make all notes that would normally be seen as long notes into short notes. Checking this box will disable you to press 'All LN'.">No LN</label>
+                        <label for="ln" title="How notes are handled. Hover over the specific options to learn more."><b>Long Notes</b></label>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8" style="width: 80%;">
+                                <input type="range" class="custom-range" min="0" max="3" step="1" value="1" id="ln"
+                                    name="ln">
+                            </div>
+                            <div class="col-md-2"></div>
                         </div>
-                        <div class="custom-control custom-checkbox check">
-                            <input type="checkbox" class="custom-control-input" id="all-ln" name="all-ln">
-                            <label class="custom-control-label" for="all-ln" title="Will turn all notes into long notes that are the size of their duration + ">All LN</label>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col text-center" title="Makes every note a short note.">
+                                <span>No LN</span>
+                            </div>
+                            <div class="col text-center" title="Looks at the length of the note in the file and decides if it should be a long note or a short note.">
+                                <span>Default</span>
+                            </div>
+                            <div class="col text-center" title="Makes every note the length it is in the file.">
+                                <span>All LN 1</span>
+                            </div>
+                            <div class="col text-center" title="Makes every note the length it is in the file and extends it untill the next note. This way you will always be pressing at least one button.">
+                                <span>All LN 2</span>
+                            </div>
+                            <div class="col-md-1"></div>
                         </div>
-                        <div class="custom-control custom-checkbox check">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="singletone" title="Ignores the volume values in the file making every note in a track the same volume. The volume of different tracks can still vary by changing their volume slide."><b>Remove MIDI volumes:</b></label>
+                        <div class="custom-control custom-checkbox" id="singletone-div">
                             <input type="checkbox" class="custom-control-input" id="singletone" name="singletone">
-                            <label class="custom-control-label" for="singletone">Remove MIDI volumes</label>
+                            <label class="custom-control-label" for="singletone"></label>
                         </div>
                     </div>
                 </div>
