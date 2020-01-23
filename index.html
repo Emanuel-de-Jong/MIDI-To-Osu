@@ -17,6 +17,7 @@
     <script src="js/functions.js"></script>
 </head>
 
+
 <body>
     <header>
         <div id="header-content">
@@ -24,6 +25,7 @@
             <p>A MIDI to osu!mania 10k beatmap converter</p>
         </div>
     </header>
+
 
     <main>
         <form action="php/convert.php" method="post">
@@ -36,7 +38,7 @@
                         </label>
                         <input type="file" accept=".mid" id="midi" name="midi" hidden />
                     </div>
-    
+
                     <div class="form-group">
                         <label for="track-1"><b>Tracks:</b></label>
                         <div id="tracks">
@@ -54,29 +56,34 @@
                                         <td>Track 1</td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="track-1-lefthand" name="track-1-lefthand">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="track-1-lefthand" name="track-1-lefthand">
                                                 <label class="custom-control-label" for="track-1-lefthand"></label>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="track-1-righthand" name="track-1-righthand">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="track-1-righthand" name="track-1-righthand">
                                                 <label class="custom-control-label" for="track-1-righthand"></label>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="track-1-background" name="track-1-background">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="track-1-background" name="track-1-background">
                                                 <label class="custom-control-label" for="track-1-background"></label>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr id="track-1-options" style="display: none;">
                                         <td>
-                                            <input type="button" class="form-control track-preview" value="play" id="track-1-preview" />
+                                            <input type="button" class="form-control track-preview" value="play"
+                                                id="track-1-preview" />
                                         </td>
                                         <td>
-                                            <select class="form-control track-sound" id="track-1-sound" name="track-1-sound">
+                                            <select class="form-control track-sound" id="track-1-sound"
+                                                name="track-1-sound">
                                                 <option value="Custom">Add custom sound</option>
                                                 <option value="Piano 1" selected>Piano 1</option>
                                                 <option value="Piano 2">Piano 2</option>
@@ -97,8 +104,9 @@
                                                     <span>No sound</span>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="range" class="custom-range track-volume" min="0" max="200" step="5" value="100"
-                                                        id="track-1-volume" name="track-1-volume">
+                                                    <input type="range" class="custom-range track-volume" min="0"
+                                                        max="200" step="5" value="100" id="track-1-volume"
+                                                        name="track-1-volume">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <span>200</span>
@@ -111,29 +119,34 @@
                                         <td>Track 2</td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="track-2-lefthand" name="track-2-lefthand">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="track-2-lefthand" name="track-2-lefthand">
                                                 <label class="custom-control-label" for="track-2-lefthand"></label>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="track-2-righthand" name="track-2-righthand">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="track-2-righthand" name="track-2-righthand">
                                                 <label class="custom-control-label" for="track-2-righthand"></label>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="track-2-background" name="track-2-background">
+                                                <input type="checkbox" class="custom-control-input"
+                                                    id="track-2-background" name="track-2-background">
                                                 <label class="custom-control-label" for="track-2-background"></label>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr id="track-2-options" style="display: none;">
                                         <td>
-                                            <input type="button" class="form-control track-preview" value="play" id="track-2-preview" />
+                                            <input type="button" class="form-control track-preview" value="play"
+                                                id="track-2-preview" />
                                         </td>
                                         <td>
-                                            <select class="form-control track-sound" id="track-2-sound" name="track-2-sound">
+                                            <select class="form-control track-sound" id="track-2-sound"
+                                                name="track-2-sound">
                                                 <option value="Custom">Add custom sound</option>
                                                 <option value="Piano 1" selected>Piano 1</option>
                                                 <option value="Piano 2">Piano 2</option>
@@ -154,8 +167,9 @@
                                                     <span>No sound</span>
                                                 </div>
                                                 <div class="col-md-8">
-                                                    <input type="range" class="custom-range track-volume" min="0" max="200" step="5" value="100"
-                                                        id="track-2-volume" name="track-2-volume">
+                                                    <input type="range" class="custom-range track-volume" min="0"
+                                                        max="200" step="5" value="100" id="track-2-volume"
+                                                        name="track-2-volume">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <span>200</span>
@@ -167,7 +181,10 @@
                             </table>
                         </div>
                     </div>
+
+
                 </div>
+
 
                 <div class="col" id="main-content-2">
                     <div class="form-group">
@@ -182,8 +199,8 @@
                                 <span>0.25</span>
                             </div>
                             <div class="col-md-8">
-                                <input type="range" class="custom-range" min="0.25" max="3" step="0.25" value="1" id="speed"
-                                    name="speed">
+                                <input type="range" class="custom-range" min="0.25" max="3" step="0.25" value="1"
+                                    id="speed" name="speed">
                             </div>
                             <div class="col-md-2">
                                 <span>3</span>
@@ -211,7 +228,7 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="form-group">
                         <label for="no-ln"><b>Other:</b></label>
                         <div class="custom-control custom-checkbox">
@@ -232,7 +249,6 @@
                 </div>
             </div>
 
-
             <br><br><br>
             <div class="form-group text-center">
                 <button type="submit" id="submit" class="btn-lg btn-primary">Convert</button>
@@ -240,77 +256,9 @@
         </form>
     </main>
 
+
     <script>
         $(document).ready(function () {
-            $(".track-row").click(function (event) {
-                var trackOptions = $("#" + this.id + "-options");
-
-                if($(this).hasClass("track-row-open")){
-                    $(this).removeClass("track-row-open");
-                    trackOptions.hide();
-                }else{
-                    $(this).addClass("track-row-open");
-                    trackOptions.show();
-                }
-            });
-
-            $(".track-preview").click(function (event) {
-                alert("work in progress");
-            });
-            $(".track-sound").change(function (event) {
-                if ($(this).val() == "Custom") {
-                    alert("work in progress");
-                }
-            });
-
-            $("form").submit(function (event) {
-                if (!uploadedFileIsMidi()) {
-                    alert("Please upload a valid midi file first!");
-                }
-                else{
-                    return;
-                }
-
-                event.preventDefault();
-            });
-
-            $(".track-volume").on("mousemove", function (){
-                var text;
-                if(this.value == "0"){
-                    text = "No sound";
-                }
-                else{
-                    text = this.value;
-                }
-                $("#" + this.id + "-value").text(text);
-            });
-
-            $("#speed").on("mousemove", function () {
-                $("#" + this.id + "-value").text(this.value);
-            });
-
-            $("#merge").on("mousemove", function () {
-                var text;
-                switch(this.value){
-                    case "0":
-                        text = "Don't merge"
-                        break;
-                    case "1":
-                        text = "1/16"
-                        break;
-                    case "2":
-                        text = "1/8"
-                        break;
-                    case "3":
-                        text = "1/4"
-                        break;
-                    case "4":
-                        text = "1/2"
-                        break;
-                }
-                $("#" + this.id + "-value").text(text);
-            });
-
             $("#midi").change(function () {
                 if (!uploadedFileIsMidi()) {
                     $("#choose-file").text("Please choose a valid file type");
@@ -350,9 +298,82 @@
             $("#choose-midi").on("drop", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
+
                 var files = event.originalEvent.dataTransfer.files;
                 $("#midi").prop("files", files);
                 $("#midi").trigger("change");
+            });
+
+
+            $(".track-row").click(function (event) {
+                var trackOptions = $("#" + this.id + "-options");
+
+                if ($(this).hasClass("track-row-open")) {
+                    $(this).removeClass("track-row-open");
+                    trackOptions.hide();
+                } else {
+                    $(this).addClass("track-row-open");
+                    trackOptions.show();
+                }
+            });
+
+            $(".track-preview").click(function (event) {
+                alert("work in progress");
+            });
+
+            $(".track-sound").change(function (event) {
+                if ($(this).val() == "Custom") {
+                    alert("work in progress");
+                }
+            });
+
+            $(".track-volume").on("mousemove", function () {
+                var text;
+                if (this.value == "0") {
+                    text = "No sound";
+                } else {
+                    text = this.value;
+                }
+                $("#" + this.id + "-value").text(text);
+            });
+
+
+            $("#speed").on("mousemove", function () {
+                $("#" + this.id + "-value").text(this.value);
+            });
+
+
+            $("#merge").on("mousemove", function () {
+                var text;
+                switch (this.value) {
+                    case "0":
+                        text = "Don't merge"
+                        break;
+                    case "1":
+                        text = "1/16"
+                        break;
+                    case "2":
+                        text = "1/8"
+                        break;
+                    case "3":
+                        text = "1/4"
+                        break;
+                    case "4":
+                        text = "1/2"
+                        break;
+                }
+                $("#" + this.id + "-value").text(text);
+            });
+
+
+            $("form").submit(function (event) {
+                if (!uploadedFileIsMidi()) {
+                    alert("Please upload a valid midi file first!");
+                } else {
+                    return;
+                }
+
+                event.preventDefault();
             });
         });
     </script>
