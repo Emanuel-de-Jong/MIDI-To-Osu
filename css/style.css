@@ -70,6 +70,11 @@ main {
 }
 
 
+.check {
+    margin: 15px 4%;
+}
+
+
 #submit {
     width: 150px;
 }

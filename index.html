@@ -45,7 +45,7 @@
                             <table class="table table-borderless" id="tracks-table">
                                 <thead>
                                     <tr>
-                                        <th>Track</th>
+                                        <th>Name</th>
                                         <th>Lefthand</th>
                                         <th>Righthand</th>
                                         <th>Background</th>
@@ -76,7 +76,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="track-1-options" style="display: none;">
+                                    <tr id="track-1-options" hidden>
                                         <td>
                                             <input type="button" class="form-control track-preview" value="play"
                                                 id="track-1-preview" />
@@ -139,7 +139,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr id="track-2-options" style="display: none;">
+                                    <tr id="track-2-options" hidden>
                                         <td>
                                             <input type="button" class="form-control track-preview" value="play"
                                                 id="track-2-preview" />
@@ -231,17 +231,15 @@
 
                     <div class="form-group">
                         <label for="no-ln"><b>Other:</b></label>
-                        <div class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox check">
                             <input type="checkbox" class="custom-control-input" id="no-ln" name="no-ln">
                             <label class="custom-control-label" for="no-ln">No LN</label>
                         </div>
-                        <br>
-                        <div class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox check">
                             <input type="checkbox" class="custom-control-input" id="all-ln" name="all-ln">
                             <label class="custom-control-label" for="all-ln">All LN</label>
                         </div>
-                        <br>
-                        <div class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox check">
                             <input type="checkbox" class="custom-control-input" id="singletone" name="singletone">
                             <label class="custom-control-label" for="singletone">Remove MIDI volumes</label>
                         </div>
@@ -314,10 +312,10 @@
 
                 if ($(this).hasClass("track-row-open")) {
                     $(this).removeClass("track-row-open");
-                    trackOptions.hide();
+                    trackOptions.attr("hidden", true);
                 } else {
                     $(this).addClass("track-row-open");
-                    trackOptions.show();
+                    trackOptions.removeAttr("hidden");
                 }
             });
 
@@ -371,15 +369,32 @@
             });
 
 
+            $("#no-ln").change(function (event){
+                if($(this).is(":checked")){
+                    $("#all-ln").attr("disabled", true);
+                }else{
+                    $("#all-ln").removeAttr("disabled");
+                }
+            });
+
+            $("#all-ln").change(function (event){
+                if($(this).is(":checked")){
+                    $("#no-ln").attr("disabled", true);
+                }else{
+                    $("#no-ln").removeAttr("disabled");
+                }
+            });
+
+
             $("form").submit(function (event) {
                 var trackWithHandExists = false;
                 var trackCountTest = 2;
                 for (var i = 0; i < trackCountTest; i++) {
-                    if($("#track-" + (i + 1) + "-lefthand").is(':checked')){
+                    if($("#track-" + (i + 1) + "-lefthand").is(":checked")){
                         trackWithHandExists = true;
                         break;
                     }
-                    if($("#track-" + (i + 1) + "-righthand").is(':checked')){
+                    if($("#track-" + (i + 1) + "-righthand").is(":checked")){
                         trackWithHandExists = true;
                         break;
                     }
