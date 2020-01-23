@@ -38,13 +38,13 @@ main {
 }
 
 
-#choose-file {
+#choose-midi {
     text-align: center;
-    line-height: 200px;
-    height: 200px;
+    line-height: 150px;
+    height: 150px;
 }
 
-#choose-file:hover {
+#choose-midi:hover {
     cursor: pointer;
 }
 
@@ -52,10 +52,6 @@ main {
 #tracks {
     display: block;
     width: 100%;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
     background-color: #fff;
     background-clip: padding-box;
     border: 1px solid #ced4da;
@@ -63,67 +59,14 @@ main {
     text-align: center;
 }
 
-#tracks:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+
+.track-row-open {
+    background-color: #bbdcff;
 }
 
 
-
-
-#track-volume-label {
-    margin: 0;
-}
-
-
-.slider-div div {
+.range-div div {
     text-align: center;
-}
-
-
-.table tbody tr.highlight td {
-    background-color: #007bff;
-    color: #fff;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    background-color: rgb(211, 211, 211);
-    border-radius: 3px;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    background-color: rgb(255, 255, 255);
-}
-
-input[type=range]:focus::-webkit-slider-thumb {
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-input[type=range]:focus::-moz-range-thumb {
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-input[type=range]:focus::-ms-thumb {
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-
-.track-category-div div {
-    margin: auto;
-}
-
-
-.track-category-button-seperator {
-    height: 8px;
 }
 
 

@@ -12,7 +12,6 @@ per track
 		play, sound, volume
 		timing bar
 speed slide
-chord range
 merge notes faster than slide
 no ln check
 all ln check
