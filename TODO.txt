@@ -4,3 +4,19 @@ add custom sounds
 
 STYLING
 no screen movement on track row select
+midi upload text not centered
+when upload text is too long, it displays in the tracks table
+
+
+JS MIDI library requirements
+read
+track count
+track name
+track length
+
+play
+change speed
+remove volume change
+change overall volume
+time bar
+changing the sound/instrument
