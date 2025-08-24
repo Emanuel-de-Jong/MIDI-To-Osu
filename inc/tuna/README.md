@@ -58,7 +58,6 @@ chorus.connect(anotherTunaNode.input);
 </pre>
 All tuna nodes are connected TO by using the nodes input property, but connecting FROM the tuna node works as it does with ordinary native AudioNodes.
 
-
 The nodes
 ====
 
