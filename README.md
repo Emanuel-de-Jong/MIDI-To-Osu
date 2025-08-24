@@ -10,20 +10,7 @@ Mostly made to learn the libraries my internship uses.
 | :---: | :---: |
 | ![](/Screenshots/.png) | ![](/Screenshots/.png) |
 
-## Information
-- Type: 
-- For: 
-- Language: 
-- Programming languages: 
-- Frameworks and libraries: 
-
 ## Progress
-- Start date: 21.12.19
+- Start date: 2019-12-21
 - Last change: 
 - Activity status: Ongoing
-- Reason activity status: 
-- Completion status: 
-- Useable: 
-- Reason useability: 
-- Main features included: 
-- Main features missing: 
