@@ -8,7 +8,7 @@ Mostly made to learn the libraries my internship used.
  
 | | |
 | :---: | :---: |
-| ![](/Screenshots/.png) | ![](/Screenshots/.png) |
+| ![](/Screenshots/1-Page.png) | ![](/Screenshots/.png) |
 
 ## Progress
 - Start date: 2019-12-21
