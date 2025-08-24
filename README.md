@@ -1,7 +1,7 @@
 # MIDI To Osu
 Converts MIDI files to 10k osu!mania files.
 
-Mostly made to learn the libraries my internship uses.
+Mostly made to learn the libraries my internship used.
 
 **Active Development:** <br>
 **Last Change:** <br>
